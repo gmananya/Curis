@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="main">
+        
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+            <a class="navbar-brand" href="#"><img src="/images/logo.png" width="50%" height="50%" alt="" /></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/landing"><strong>Home</strong></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login"><strong>Logout</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="sign-in">
+            <div class="container extra">
+                <div class="signin-content">
+                    <form action="/auth/doctorStatus" method="POST" class="register-form" id="login-form">
+                        <h2 class="form-title topic">Dashboard</h2>
+                        <div class="form-group form-button">
+                            <input type="submit" name="Show details" id="signin" class="form-submit"
+                                value="Show details" />
+                        </div>
+                        <div class="form-group ">
+                            <label for="userid"></label>
+                            <input type="text" name="userid" id="userid" readonly />
+                            <script>
+                                document.getElementById("userid").value = localStorage.getItem("idvalue")
+                            </script>
+                        </div>
+                        
+
+                        <table class='table table-striped'>
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Hospital</th>
+                                    <th>Specialization</th>
+                                    <th>Qualification</th>
+                                    <th>Experience</th>
+                            </thead>
+
+                            <tbody>
+
+
+                                {{#each data}}
+                                <tr>
+                                    <td><img src="/images/profileimages/{{this.profileimg}}" style="width:50%" alt="img"></td>
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.hospital}}</td>
+                                    <td>{{this.specialization}}</td>
+                                    <td>{{this.qualification}}</td>
+                                    <td>{{this.experience}}</td>
+                                </tr>
+                                {{/each}}
+
+                            </tbody>
+                        </table>
+
+                    </form>
+                    </div>
+                    <form action="/doctor" method="GET"  id="login-form">
+                        <div class="form-group form-button ">
+                            <input type="submit" name="Edit" id="signin" class="form-log"
+                                value="Edit" />
+                        </div>
+                    </form>
+                    
+                     <form action="/doctorConfirm" method="GET"  id="login-form">
+                        <div class="form-group form-button ">
+                            <input type="submit" name="Confirm" id="signin" class="form-log"
+                                value="Waiting transplantaitons" />
+                        </div>
+                     </form>
+                     <form action="/login" method="GET" id="login-form">
+                        <div class="form-group form-button">
+                            <input type="submit" name="Logout" id="signin" class="form-log" value="Logout" />
+                        </div>
+                    </form>
+
+                
+            </div>
+        </section>
+
+
+        
+<!-- JS -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+</body>
+
+</html>

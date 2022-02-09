@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="main">
+          <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+            <a class="navbar-brand" href="#"><img src="/images/logo.png" width="50%" height="50%" alt="" /></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/landing"><strong>Home</strong></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login"><strong>Sign in</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" action="/auth/register" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="role"></i></label>
+                                <select type="text" name="role" id="role"  class="browser-default custom-select">
+                                    <option value="" disabled selected>Role</option>
+                                    <option value="Recipient">Recipient</option>
+                                    <option value="Donor">Donor</option>
+                                    <option value="Doctor">Doctor</option>
+                                    <option value="Hospital">Hospital</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="password" placeholder="Password" />
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordConfirm"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm password" />
+                            </div>
+
+                            {{#if message}}
+                                <h4 class="aler alert-danger mt-4">{{message}}</h4>
+                            {{/if}}
+
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all the
+                                <a href="https://google.com" class="term-service"><u>terms and conditions</u></a> of the service</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="/images/bgg.png" alt="sign up image"></figure>
+                        <a href="/login" class="signup-image-link">I am already a member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+</body>
+
+</html>
